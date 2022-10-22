@@ -34,5 +34,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "antd": "^4.23.6",
+    "bootstrap": "^5.2.2",
+    "pubsub-js": "^1.9.4",
+    "reset.css": "^2.0.2"
   }
 }
