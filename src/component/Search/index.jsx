@@ -3,17 +3,17 @@ import {Button, Form, Input} from "antd";
 
 import This from "./index.module.css"
 
-class Index extends Component {
+class Search extends Component {
     render() {
         return (
             <div>
                 <Form onFinish={this.onFinish} className={This['demo-form-inline']}>
-                    <Form.Item label="请输入关键词" name="keyWord">
+                    <Form.Item label="Anfrage eingeben" name="keyWord">
                         <Input className={This.input}/>
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" htmlType="submit" className={This.submit}>
-                            查询
+                        Bestätigt
                         </Button>
                     </Form.Item>
                 </Form>
@@ -27,4 +27,4 @@ class Index extends Component {
     }
 }
 
-export default Index;
+export default Search;
