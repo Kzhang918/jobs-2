@@ -4,10 +4,11 @@ import PubSub from "pubsub-js"
 
 import Search from "../Search"
 import Upload from "../UploadFile"
-import CreateModule from "../CreateModule"
+import CreateFEMDEMFEM from "../CreateFEMDEMFEM"
+import CreateLaminierSimulation from "../CreateLaminierSimulation"
 import This from "./index.module.css"
 
-class Index extends Component {
+class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {activeKey: 0}
@@ -15,7 +16,9 @@ class Index extends Component {
 
 
     componentDidMount() {
+        // 解构赋值 相当于  const state= this.state
         const {state} = this
+
         state.pubsub = PubSub.subscribe("getKey", (key, val) => this.onGetActive(val))
         this.setState(state)
         PubSub.subscribe("getKey", (key, val) => this.onGetActive(val))
@@ -28,13 +31,10 @@ class Index extends Component {
             <div className={This['form-wrapper']}>
                 <h2 className={This.title}>
                     <span>
-                    {activeKey === 0 ? "查找" : (activeKey === 1 ? "上传" : "建立模型")}
+                    {activeKey === 0 ? "SparqlQuery" : activeKey === 1 ? "Hochladen" : (activeKey === 2 ? "FEM-DEM-FEM Simulation" : "Laminiersimulation")}
                     </span>
                 </h2>
-                {activeKey === 0 ? <Search/> : (activeKey === 1 ? <Upload/> : <CreateModule/>)}
-                <hbase-tool-index v-if="activeKey === 0"/>
-                <upload-component-index v-else-if="activeKey === 1"/>
-                <create-component-index v-else/>
+                {activeKey === 0 ? <Search/> : activeKey === 1 ? <Upload/> : (activeKey === 2 ? <CreateFEMDEMFEM/> : <CreateLaminierSimulation/>)}
             </div>
         );
     }
@@ -47,4 +47,4 @@ class Index extends Component {
 
 }
 
-export default Index;
+export default Content;
