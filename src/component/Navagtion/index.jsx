@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import This from "./index.module.css"
 import PubSub from "pubsub-js";
 
-class Index extends Component {
+class Nav extends Component {
 
     constructor(props) {
         super(props);
@@ -18,13 +18,16 @@ class Index extends Component {
         return (
             <ul className={This.nav} ref={c => this.$refs.navList = c}>
                 <li className={`${This.item} ${This.active}`} onClick={() => this.onChange(0)}>
-                    <a href="#">查找</a>
+                    <a href="#">Abfragen</a>
                 </li>
                 <li className={This.item} onClick={() => this.onChange(1)}>
-                    <a href="#">上传</a>
+                    <a href="#">Hochladen</a>
                 </li>
                 <li className={This.item} onClick={() => this.onChange(2)}>
-                    <a href="#">建立模型</a>
+                    <a href="#">FEM-DEM-FEM Simulation</a>
+                </li>
+                <li className={This.item} onClick={() => this.onChange(3)}>
+                    <a href="#">Laminiersimulation</a>
                 </li>
             </ul>
         )
@@ -41,4 +44,4 @@ class Index extends Component {
     }
 }
 
-export default Index;
+export default Nav;
