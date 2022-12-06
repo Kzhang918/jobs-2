@@ -20,7 +20,7 @@ class Content extends Component {
 
         state.pubsub = PubSub.subscribe("getKey", (_, key) => this.onGetActive(key))
         this.setState(state)
-        PubSub.subscribe("getKey", (key, val) => this.onGetActive(val))
+        PubSub.subscribe("getKey", (_, key) => this.onGetActive(key))
     }
 
     render() {
