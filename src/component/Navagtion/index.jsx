@@ -39,7 +39,7 @@ class Nav extends Component {
         for (let element of navList) {
             element.className = This.item
         }
-        navList[key].className += ` ${This.active}`
+        navList[key].className += `${This.active}`
         PubSub.publish("getKey",key)
     }
 }

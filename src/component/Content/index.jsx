@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import PubSub from "pubsub-js"
 
 import Search from "../Search"
@@ -19,7 +18,7 @@ class Content extends Component {
         // 解构赋值 相当于  const state= this.state
         const {state} = this
 
-        state.pubsub = PubSub.subscribe("getKey", (key, val) => this.onGetActive(val))
+        state.pubsub = PubSub.subscribe("getKey", (_, key) => this.onGetActive(key))
         this.setState(state)
         PubSub.subscribe("getKey", (key, val) => this.onGetActive(val))
     }
